@@ -75,7 +75,7 @@ Chucnang:Button{
         game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args))
         GUI:Notification{
             Title = "Spin thanh cong",
-            Text = workspace.PlayerData_.roll:GetChildren()[slot],
+            Text = workspace.PlayerData_.Clans:GetChildren()[slot],
             Duration = 3,
             Callback = function() end
         }
