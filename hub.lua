@@ -73,7 +73,12 @@ Chucnang:Button{
             }
         }
         game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args))
-        
+        GUI:Notification{
+            Title = "Alert",
+            Text = "You shall bump the thread on V3rmillion!",
+            Duration = 3,
+            Callback = function() end
+        }
     end
 }
 
