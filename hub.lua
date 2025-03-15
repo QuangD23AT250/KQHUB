@@ -36,7 +36,7 @@ Chucnang:Button{
 }
 Chucnang:Dropdown{
 	Name = "Clan/Fam/Ele",
-	StartingText = "Select...",
+	StartingText = "Clans",
 	Description = nil,
 	Items = {
 		"Clans",
@@ -50,7 +50,7 @@ Chucnang:Dropdown{
 }
 Chucnang:Dropdown{
 	Name = "Slot",
-	StartingText = "Select...",
+	StartingText = "1",
 	Description = nil,
 	Items = {
 		1,
@@ -74,8 +74,8 @@ Chucnang:Button{
         }
         game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args))
         GUI:Notification{
-            Title = "Alert",
-            Text = "You shall bump the thread on V3rmillion!",
+            Title = "Spin thanh cong",
+            Text = workspace.PlayerData_.roll:GetChildren()[slot],
             Duration = 3,
             Callback = function() end
         }
