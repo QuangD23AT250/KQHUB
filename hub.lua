@@ -9,8 +9,8 @@ local GUI = Mercury:Create{
 
 ---local 
 local reroll = false
-
-
+local roll="Clans"
+local slot=1
 
 
 ------- Game tab
@@ -34,6 +34,50 @@ Chucnang:Button{
 
     end
 }
+Chucnang:Dropdown{
+	Name = "Clan/Fam/Ele",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {
+		"Clans",
+        "Elements",
+        "Family",
+	},
+	Callback = function(item) 
+        roll=item
+        print(roll)
+         end
+}
+Chucnang:Dropdown{
+	Name = "Slot",
+	StartingText = "Select...",
+	Description = nil,
+	Items = {
+		1,
+        2,
+        3,
+	},
+	Callback = function(item) 
+        slot=item
+        print(slot)
+         end
+}
+Chucnang:Button{
+	Name = "Spin",
+	Description = nil,
+	Callback = function() 
+        local args = {
+            roll,
+            {
+                IndexSlot = slot
+            }
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args))
+        
+    end
+}
+
+
 Chucnang:Toggle{
 	Name = "Vocucspin",
 	StartingState = false,
