@@ -249,7 +249,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                 game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)        
             end
             print(workspace.PlayerData_.Spins.ClanSpins.Value)
-            task.wait(2)
+            task.wait(5)
         end
     end)
 
