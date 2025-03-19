@@ -248,7 +248,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
             }
             game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args1))
                 local checknow=workspace.PlayerData_[autoroll]:GetChildren()[autoslot].Name
-       
+            print(checknow)
              if autoclan==checknow  then
                 local args = {
                     "CustomizeSave",
