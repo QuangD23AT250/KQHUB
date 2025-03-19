@@ -224,7 +224,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                 }
             }
             game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args))
-            wait(1)
+            task.wait(2)
             print(workspace.PlayerData_[autoroll]:GetChildren()[autoslot].Name)
              if autoclan==workspace.PlayerData_[autoroll]:GetChildren()[autoslot].name  then
                 Options.turnauto:SetValue(false)               
