@@ -248,7 +248,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
             game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args1))
 
             print(workspace.PlayerData_.Spins.ClanSpins.Value)
-             if autoclan==workspace.PlayerData_.Clans:GetChildren()[1].Name  then
+             if autoclan=="RIN"  then
                 local args = {
                     "CustomizeSave",
                     {
