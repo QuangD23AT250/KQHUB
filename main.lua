@@ -216,6 +216,28 @@ end)
 local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Default = false })
 
     Turnauto:OnChanged(function()
+        if Options.turnauto.Value then
+            local args = {
+                "CustomizeSave",
+                {
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    {
+                        ["Saturation\195\191"] = workspace,
+                        ["Hue\195\191"] = workspace,
+                        ["Value\195\191"] = workspace
+                    },
+                    1
+                }
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+        
+        end
+        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+        
         while Options.turnauto.Value do
             local args1 = {
                 autoroll,
@@ -224,28 +246,30 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                 }
             }
             game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args1))
+
             print(workspace.PlayerData_.Spins.ClanSpins.Value)
              if autoclan==workspace.PlayerData_[autoroll]:GetChildren()[autoslot].name  then
-                Options.turnauto:SetValue(false)               
-             end
-            if workspace.PlayerData_.Spins.ClanSpins.Value==0 then
                 local args = {
                     "CustomizeSave",
                     {
-                        1,
-                        1,
-                        1,
+                        2,
+                        3,
+                        20,
                         1,
                         1,
                         {
-                            ["Saturation\195\191"] = workspace,
-                            ["Hue\195\191"] = workspace,
-                            ["Value\195\191"] = workspace
+                            Hue = 0,
+                            Saturation = 0,
+                            Value = 0
                         },
                         1
                     }
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+                
+                Options.turnauto:SetValue(false)               
+             end
+            if workspace.PlayerData_.Spins.ClanSpins.Value==0 then
                 
                 game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)        
             end
