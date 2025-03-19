@@ -35,7 +35,7 @@ local autofamily="Healer"
 local configname="Default"
 -------------------------------
 
-
+SaveManager:LoadAutoloadConfig()
 ---MAIN TAB------
 
     
@@ -60,7 +60,7 @@ infspin:OnChanged(function()
     print("Toggle changed:", Options.infspin.Value)
     if Options.infspin.Value then
         print("Inf spin on")
-        local args = {
+        local args0 = {
             "CustomizeSave",
             {
                 1,
@@ -76,10 +76,10 @@ infspin:OnChanged(function()
                 1
             }
         }
-        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args0))
     else
         print("Inf spin off")
-        local args = {
+        local args0 = {
             "CustomizeSave",
             {
                 2,
@@ -95,7 +95,7 @@ infspin:OnChanged(function()
                 1
             }
         }
-        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args0))
         
     end
 end)
@@ -328,4 +328,3 @@ Fluent:Notify({
 
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
-SaveManager:LoadAutoloadConfig()
