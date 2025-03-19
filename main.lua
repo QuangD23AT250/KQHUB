@@ -33,6 +33,7 @@ local autoclan="Haruno"
 local autoelement="Fire"
 local autofamily="Healer"
 local configname="Default"
+local clannow=" "
 -------------------------------
 
 
@@ -246,9 +247,9 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                 }
             }
             game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args1))
-
+                local checknow=workspace.PlayerData_[autoroll]:GetChildren()[autoslot].Name
             print(workspace.PlayerData_.Spins.ClanSpins.Value)
-             if autoclan=="RIN"  then
+             if autoclan==checknow  then
                 local args = {
                     "CustomizeSave",
                     {
