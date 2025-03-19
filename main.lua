@@ -217,7 +217,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
 
     Turnauto:OnChanged(function()
         if Options.turnauto.Value then
-            local args = {
+            local args0 = {
                 "CustomizeSave",
                 {
                     1,
@@ -233,10 +233,10 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                     1
                 }
             }
-            game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args0))
         
         end
-        game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
+        
         
         while Options.turnauto.Value do
             local args1 = {
