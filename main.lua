@@ -20,7 +20,7 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
     
 }
-game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
+
 -------- Local function--------
 local Options = Fluent.Options
 local reroll = false
@@ -218,6 +218,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
 
     Turnauto:OnChanged(function()
         if Options.turnauto.Value then
+            game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
             local args2 = {
                 "CustomizeSave",
                 {
