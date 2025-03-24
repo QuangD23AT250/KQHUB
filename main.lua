@@ -20,7 +20,7 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
     
 }
-
+game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
 -------- Local function--------
 local Options = Fluent.Options
 local reroll = false
