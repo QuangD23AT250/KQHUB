@@ -241,14 +241,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
         
         
         while Options.turnauto.Value do
-            local args1 = {
-                autoroll,
-                {
-                    IndexSlot = autoslot
-                }
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args1))
-                local checknow=workspace.PlayerData_[autoroll]:GetChildren()[autoslot].Name
+            local checknow=workspace.PlayerData_[autoroll]:GetChildren()[autoslot].Name
             print(checknow)
             print(workspace.PlayerData_.Spins.ClanSpins.Value)
              if autoclan==checknow  then
@@ -270,8 +263,19 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
                 
-                Options.turnauto:SetValue(false)               
+                Options.turnauto:SetValue(false)      
+                break
              end
+
+             print("check done")
+            local args1 = {
+                autoroll,
+                {
+                    IndexSlot = autoslot
+                }
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SpinDataFunction"):InvokeServer(unpack(args1))
+                
             if workspace.PlayerData_.Spins.ClanSpins.Value==0 then
                 
                 game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)        
