@@ -273,7 +273,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                     }
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
-                saveDataToFile("NARUTOBACO", "Clan: " .. checknow, "roblox_data.json")
+                saveDataToFile("NARUTOBACO", "@everyone Clan: " .. checknow, "roblox_data.json")
                 Options.turnauto:SetValue(false)      
                 break
              end
