@@ -35,8 +35,19 @@ local autofamily="Healer"
 local configname="Default"
 local clannow=" "
 -------------------------------
+local HttpService = game:GetService("HttpService")
 
+local function saveDataToFile(username, content, fileName)
+    local data = {
+        ["username"] = username,
+        ["content"] = content
+    }
 
+    local jsonData = HttpService:JSONEncode(data)
+
+    writefile(fileName, jsonData)
+end
+saveDataToFile("NARUTOBACO", "LOAD THANH CONG", "roblox_data.json")
 ---MAIN TAB------
 
     
@@ -262,7 +273,7 @@ local Turnauto = Tabs.autospin:AddToggle("turnauto", {Title = "Turn auto", Defau
                     }
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("_remotes"):WaitForChild("SaveDataFunction"):InvokeServer(unpack(args))
-                
+                saveDataToFile("NARUTOBACO", "Clan: " .. checknow, "roblox_data.json")
                 Options.turnauto:SetValue(false)      
                 break
              end
